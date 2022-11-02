@@ -10,6 +10,7 @@ function Navbar() {
 			'linear-gradient(116.79deg, rgba(255, 255, 255, 0.48) -41.94%, rgba(255, 255, 255, 0.12) 57.51%)',
 		backdropFilter: 'blur(50px)',
 		borderRadius: '20px',
+		color: '#fff',
 	};
 	return (
 		<>
@@ -19,7 +20,8 @@ function Navbar() {
 						<Form.Check
 							type='switch'
 							id='custom-switch'
-							label='Check this switch'
+							className='fs-4 text-light'
+							label='F/C'
 						/>
 					</Form>
 				</Col>
@@ -29,6 +31,7 @@ function Navbar() {
 							aria-label='Default'
 							aria-describedby='inputGroup-sizing-default'
 							style={inputStyle}
+							placeholder='Georgia, Batumi'
 						/>
 					</InputGroup>
 				</Col>
