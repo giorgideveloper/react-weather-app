@@ -2,8 +2,14 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { getCitySearch } from '../services/ApiService';
 
 function Navbar() {
+	const searchWeather = async e => {
+		console.log(e.target.value);
+		await getCitySearch(e).then(res => console.log(res));
+	};
+
 	const inputStyle = {
 		height: '50px',
 		background:
@@ -12,6 +18,7 @@ function Navbar() {
 		borderRadius: '20px',
 		color: '#fff',
 	};
+
 	return (
 		<>
 			<Row className='justify-content-between pt-3'>
@@ -32,6 +39,7 @@ function Navbar() {
 							aria-describedby='inputGroup-sizing-default'
 							style={inputStyle}
 							placeholder='Georgia, Batumi'
+							onChange={searchWeather}
 						/>
 					</InputGroup>
 				</Col>
