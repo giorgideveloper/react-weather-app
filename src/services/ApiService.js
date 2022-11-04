@@ -8,7 +8,7 @@ const instance = axios.create({
 	},
 });
 
-const apikey = 'Pq59arhPTj6vchkubxAch37i3IXaYCkD';
+const apikey = 'rGWJtckgHsXDmepWmmvntXveFLXAUUmK';
 
 const getCitySearch = q =>
 	instance.get('/locations/v1/cities/search', { params: { apikey, q } });
@@ -19,9 +19,15 @@ const getCityFromIpAddress = q =>
 	instance.get('/locations/v1/cities/ipaddress/search', {
 		params: { apikey, q },
 	});
+const getFiveDayForecast = (key, metric) =>
+	instance.get(`/forecasts/v1/daily/5day/${key}`, {
+		params: { apikey, metric },
+	});
+
 export {
 	getCitySearch,
 	getCurrentCondition,
 	getIpAddress,
 	getCityFromIpAddress,
+	getFiveDayForecast,
 };
