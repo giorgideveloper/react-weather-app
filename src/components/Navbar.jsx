@@ -4,10 +4,15 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { getCitySearch } from '../services/ApiService';
 
-function Navbar() {
+function Navbar({ setCitySearch }) {
 	const searchWeather = async e => {
-		console.log(e.target.value);
-		await getCitySearch(e).then(res => console.log(res));
+		if (e.target.value.length > 3) {
+			await getCitySearch(e.target.value).then(res =>
+				setCitySearch(res.data[0]?.Key)
+			);
+		} else {
+			setCitySearch('');
+		}
 	};
 
 	const inputStyle = {

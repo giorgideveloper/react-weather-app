@@ -6,12 +6,12 @@ function ForecastFiveDays() {
 	return (
 		<>
 			{' '}
-			<Row className='pt-3 pb-5 justify-content-center text-center text-light'>
+			<Row className='pt-5 pb-5 justify-content-center text-center text-light'>
 				<Col md={2}>
 					<div
 						style={{
 							width: '100%',
-							height: '230px',
+							height: '260px',
 							background: 'rgba(255, 255, 255, 0.2)',
 						}}
 					>
@@ -46,7 +46,7 @@ function ForecastFiveDays() {
 					<div
 						style={{
 							width: '100%',
-							height: '230px',
+							height: '260px',
 							background: 'rgba(255, 255, 255, 0.2)',
 						}}
 					>
@@ -81,7 +81,7 @@ function ForecastFiveDays() {
 					<div
 						style={{
 							width: '100%',
-							height: '230px',
+							height: '260px',
 							background: 'rgba(255, 255, 255, 0.2)',
 						}}
 					>
@@ -116,7 +116,7 @@ function ForecastFiveDays() {
 					<div
 						style={{
 							width: '100%',
-							height: '230px',
+							height: '260px',
 							background: 'rgba(255, 255, 255, 0.2)',
 						}}
 					>
@@ -151,7 +151,7 @@ function ForecastFiveDays() {
 					<div
 						style={{
 							width: '100%',
-							height: '230px',
+							height: '260px',
 							background: 'rgba(255, 255, 255, 0.2)',
 						}}
 					>
