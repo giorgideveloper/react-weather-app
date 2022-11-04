@@ -1,18 +1,23 @@
-import React from 'react';
+import { Button } from 'react-bootstrap';
+import React, { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { getCitySearch } from '../services/ApiService';
 
 function Navbar({ setCitySearch }) {
-	const searchWeather = async e => {
-		if (e.target.value.length > 3) {
-			await getCitySearch(e.target.value).then(res =>
-				setCitySearch(res.data[0]?.Key)
-			);
+	const [value, setValue] = useState('');
+
+	const searchWeather = async () => {
+		if (value.length > 3) {
+			await getCitySearch(value).then(res => setCitySearch(res.data[0]?.Key));
 		} else {
 			setCitySearch('');
 		}
+	};
+
+	const getValue = e => {
+		setValue(e.target.value);
 	};
 
 	const inputStyle = {
@@ -23,6 +28,7 @@ function Navbar({ setCitySearch }) {
 		borderRadius: '20px',
 		color: '#fff',
 	};
+	console.log(value);
 
 	return (
 		<>
@@ -38,15 +44,17 @@ function Navbar({ setCitySearch }) {
 					</Form>
 				</Col>
 				<Col md={4}>
-					<InputGroup className='mb-3'>
+					<InputGroup className='mb-3 text-light'>
 						<Form.Control
 							aria-label='Default'
 							aria-describedby='inputGroup-sizing-default'
 							style={inputStyle}
 							placeholder='Georgia, Batumi'
-							onChange={searchWeather}
+							onChange={getValue}
+							className='text-light'
 						/>
 					</InputGroup>
+					<Button onClick={searchWeather}>Search Weather</Button>
 				</Col>
 			</Row>
 		</>

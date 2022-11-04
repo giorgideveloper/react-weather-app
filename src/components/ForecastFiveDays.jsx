@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import fiveDayIcon from '../assets/img/fiveDayIcon.svg';
 import { getFiveDayForecast } from '../services/ApiService';
 
 function ForecastFiveDays({ citySearch }) {
 	const [data, setData] = useState([]);
 
-	useState(() => {
+	useState(async () => {
 		if (citySearch)
-			getFiveDayForecast(citySearch, true).then(res =>
+			await getFiveDayForecast(citySearch, true).then(res =>
 				setData(res.data.DailyForecasts)
 			);
 
 		return () => setData([]);
 	}, [citySearch]);
-	console.log(data);
+	console.log(citySearch);
 
 	return (
 		<>

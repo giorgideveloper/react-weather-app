@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { getCurrentCondition } from '../services/ApiService';
+import { format } from 'date-fns';
 
 function ForecastToday({ citySearch }) {
 	const [weather, setWeather] = useState('');
@@ -14,6 +15,8 @@ function ForecastToday({ citySearch }) {
 			currentWeather(citySearch);
 		}
 	}, [citySearch]);
+
+	format(new Date(2014, 1, 11), 'MM/dd/yyyy');
 	return (
 		<>
 			<Row className='justify-content-center' style={{ marginTop: '60px' }}>
